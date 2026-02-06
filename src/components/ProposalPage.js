@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Stars } from 'lucide-react';
+import { Stars } from 'lucide-react';
 import RainBackground from './RainBackground'; // Import the new component
 
 const ProposalPage = () => {
