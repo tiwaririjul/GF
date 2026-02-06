@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import LandingPage from './components/LandingPage';
+import ProposalPage from './components/ProposalPage';
 import './App.css';
 
 function App() {
+  const [page, setPage] = useState('landing'); // 'landing' or 'proposal'
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {page === 'landing' && (
+        <LandingPage onContinue={() => setPage('proposal')} />
+      )}
+      {page === 'proposal' && (
+        <ProposalPage />
+      )}
     </div>
   );
 }

@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --rose-red: #e11d48;
+  --rose-pink: #fb7185;
+  --soft-pink: #fff1f2;
+  --text-dark: #881337;
+  --white: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--soft-pink);
+  background-image: radial-gradient(#ffe4e6 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow-x: hidden;
+  color: var(--text-dark);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  /* Added padding for small screens */
+}
+
+/* Floating Roses Animation Background - Now handled in RainBackground.js */
+
+/* Typography */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: var(--rose-red);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(225, 29, 72, 0.2);
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--rose-red), var(--rose-pink));
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(225, 29, 72, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-yes {
+  background-color: var(--rose-red);
+  color: white;
+}
+
+.btn-no {
+  background-color: #cbd5e1;
+  color: #475569;
+}
+
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(225, 29, 72, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 10;
+  max-width: 90%;
+  width: 500px;
+}
+
+/* Utility to ensure No button moves properly */
+.proposal-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  min-height: 100px;
+  /* Space for moving button */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    /* Smaller font on mobile */
   }
-  to {
-    transform: rotate(360deg);
+
+  p {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 2rem;
+    width: 90%;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .proposal-container {
+    flex-direction: column;
+    /* Stack buttons on very small screens if needed, though side-by-side relies on space */
+    gap: 15px;
+  }
+
+  /* Ensure NO button movement doesn't push layout too much */
+  .proposal-container {
+    min-height: 150px;
   }
 }
