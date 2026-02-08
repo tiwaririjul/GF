@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 // Extended array of romantic emojis - defined outside to be stable
-const emojis = ['🌹', '🌸', '💐', '🌺', '❤️', '💖', '🥰', '😍', '✨', '💝', '🦋', '💞'];
+const defaultEmojis = ['🌹', '🌸', '💐', '🌺', '❤️', '💖', '🥰', '😍', '✨', '💝', '🦋', '💞'];
 
-const RainBackground = () => {
+const RainBackground = ({ emojis = defaultEmojis }) => {
 
     // Generate particles with stable random values
     const particles = useMemo(() => {

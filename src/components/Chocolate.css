@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Reset for box-sizing to prevent overflow */
+* {
+    box-sizing: border-box;
+}
+
+/* Chocolate Page Background */
+.chocolate-page {
+    min-height: 100vh;
+    /* Richer gradient */
+    background: radial-gradient(circle at top right, #5d4037, #3e2723, #1a0f0d);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.chocolate-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+    /* Gold-ish gradient text */
+    background: linear-gradient(to bottom, #ffe0b2, #d7ccc8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+    z-index: 20;
+}
+
+.chocolate-subtitle {
+    color: #d7ccc8;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    max-width: 80%;
+}
+
+/* Glassmorphism Container */
+.game-container-wrapper {
+    width: 100%;
+    max-width: 500px;
+    /* Slightly wider */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 20;
+}
+
+/* Win Card */
+.win-card {
+    background: rgba(255, 255, 255, 0.95);
+    color: #3e2723;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 4px solid #8d6e63;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 400px;
+    width: 100%;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.win-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: spin 3s linear infinite;
+}
+
+.win-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #5d4037;
+    font-family: 'Poppins', sans-serif;
+}
+
+.win-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #fff9c4, #fff176);
+    border: 2px dashed #fbc02d;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    transform: rotate(-2deg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.highlight-box:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.coupon-label {
+    font-weight: 900;
+    color: #854d0e;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.coupon-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #3e2723;
+    margin: 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.screenshot-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e53935;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: bounce 1.5s infinite;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Game Component */
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    /* Taller on mobile */
+    max-height: 600px;
+    background-color: #fff5f5;
+    /* Very light pink */
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    touch-action: none;
+}
+
+.game-hud {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hud-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    font-weight: 700;
+    color: #d81b60;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.game-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 30;
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    text-align: center;
+}
+
+.btn-start {
+    background: linear-gradient(to right, #d81b60, #ff4081);
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(216, 27, 96, 0.5);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-start:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(216, 27, 96, 0.7);
+}
+
+.btn-start:active {
+    transform: scale(0.95);
+}
+
+.game-item {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+    /* No fixed font-size here, handled in inline style */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-15%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@media (min-width: 768px) {
+    .chocolate-title {
+        font-size: 5rem;
+    }
+
+    .game-area {
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chocolate-page {
+        padding: 0.5rem;
+        justify-content: flex-start;
+        /* Start from top to avoid cutting off */
+    }
+
+    .chocolate-title {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+
+    .chocolate-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .game-container-wrapper {
+        padding: 0.75rem;
+        max-width: 100%;
+    }
+
+    .game-area {
+        height: 60vh;
+        /* Adjust for mobile viewport */
+        border-width: 2px;
+    }
+
+    .game-hud {
+        top: 0.5rem;
+        left: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .win-card {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    .win-title {
+        font-size: 1.5rem;
+    }
+
+    .win-icon {
+        font-size: 3rem;
+    }
+
+    .btn-start {
+        padding: 0.75rem 2rem;
+        font-size: 1.2rem;
+    }
+}

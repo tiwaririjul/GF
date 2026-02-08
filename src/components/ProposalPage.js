@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Stars } from 'lucide-react';
 import RainBackground from './RainBackground'; // Import the new component
 
-const ProposalPage = () => {
+const ProposalPage = ({ onNext }) => {
     const [yesScale, setYesScale] = useState(1);
     const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
     const [accepted, setAccepted] = useState(false);
@@ -49,6 +49,16 @@ const ProposalPage = () => {
                     <div style={{ fontSize: '4rem', marginTop: '20px' }}>
                         💑🌹💖
                     </div>
+
+                    <motion.button
+                        className="btn btn-primary"
+                        style={{ marginTop: '2rem' }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={onNext}
+                    >
+                        Wait, there is more... 🍫
+                    </motion.button>
                 </motion.div>
                 <RainBackground />
             </div>
