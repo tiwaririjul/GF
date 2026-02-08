@@ -33,7 +33,7 @@ const RainBackground = ({ emojis = defaultEmojis }) => {
                 rotate: Math.random() * 360,
             };
         });
-    }, []);
+    }, [emojis]);
 
     return (
         <div className="floating-bg" style={{
